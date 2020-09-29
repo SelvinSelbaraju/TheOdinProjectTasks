@@ -1,0 +1,80 @@
+<style>
+    body {
+        background-image: url(https://www.sciencemag.org/sites/default/files/styles/article_main_large/public/images/sn-rockpaper.jpg?itok=4WUMt1oc);
+    }
+</style>
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Rock Paper Scissors</title>
+    </head>
+
+    <body>
+        
+        <script>
+            const MOVES = ["rock","paper","scissors"];
+            function getRandomInt(max) {
+                return Math.floor(Math.random() * max);
+            }
+
+            function computerMove() {
+                let cpumove = MOVES[getRandomInt(3)];
+                return cpumove;
+            }
+
+            function Game() {
+                let cpumove = computerMove()
+                let playerMove = prompt("Please enter your move:").toLowerCase();
+                if (playerMove === 'rock') {
+                    if (cpumove === 'paper') {
+                        return `CPU played ${cpumove}. You lose`;
+                    }
+                    else if (cpumove === 'scissors') {
+                        return `CPU played ${cpumove}. You win`;
+                    }
+
+                    else if (cpumove === 'rock') {
+                        return `CPU played ${cpumove}. You tie`;
+                    }
+
+                 
+                 
+                }
+                else if (playerMove === 'paper') {
+                    if (cpumove === 'scissors') {
+                        return `CPU played ${cpumove}. You lose`;
+                    }
+                    else if (cpumove === 'rock') {
+                        return `CPU played ${cpumove}. You win`;
+                    }
+
+                    else if (cpumove === 'paper') {
+                        return `CPU played ${cpumove}. You tie`;
+                    }
+                 
+                }
+
+                if (playerMove === 'scissors') {
+                    if (cpumove === 'rock') {
+                        return `CPU played ${cpumove}. You lose`;
+                    }
+                    else if (cpumove === 'paper') {
+                        return `CPU played ${cpumove}. You win`;
+                    }
+
+                    else if (cpumove === 'scissors') {
+                        return `CPU played ${cpumove}. You tie`;
+                    }
+
+                   
+                 
+                }
+
+                else {return "You entered an invalid move";} 
+
+            }
+
+        </script>
+    </body>
+</html>
