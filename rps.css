@@ -1,0 +1,35 @@
+html, body {
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    font-family: sans-serif;
+    
+}
+
+h1 {
+    margin: 0;
+}
+
+
+#game-intro {
+    background-color: rgba(0, 0, 0, 0.8);
+    padding-top: 0;
+    margin-top: 0;
+    color: white
+}
+
+#scoreDiv {
+    position: absolute;
+    min-height: 100%;
+    min-width: 100%;
+    background-image: url('https://wallpaperaccess.com/full/255090.jpg');
+    background-size: cover;
+}
+
+#score {
+    background-color: royalblue;
+    width: 80px;
+    padding: 0;
+    text-align: center;
+    float: right;
+}
