@@ -3,7 +3,8 @@ html, body {
     padding: 0;
     margin: 0;
     font-family: sans-serif;
-    
+    background-image: url('https://wallpaperaccess.com/full/255090.jpg');
+    background-size: cover; 
 }
 
 h1 {
@@ -12,24 +13,49 @@ h1 {
 
 
 #game-intro {
-    background-color: rgba(0, 0, 0, 0.8);
-    padding-top: 0;
-    margin-top: 0;
-    color: white
+    background-color: rgba(0, 0, 0, 1);
+    color: white;
 }
 
 #scoreDiv {
-    position: absolute;
     min-height: 100%;
     min-width: 100%;
-    background-image: url('https://wallpaperaccess.com/full/255090.jpg');
-    background-size: cover;
+    
 }
 
 #score {
-    background-color: royalblue;
-    width: 80px;
+    background-color: rgba(255, 0, 0, 0.5);
+    border: .1em solid black;
+    font-size: 1.5em;
+    width: 5em;
     padding: 0;
     text-align: center;
     float: right;
+    padding: 1em;
+    
+}
+
+#game-div {
+    margin: 0 auto;
+    width: 100%;
+    text-align: center;
+}
+
+.btn {
+    color: black;
+    text-align: center;
+    font-size: 36px;
+    text-shadow: 0 0 .5em black;
+    background-color: rgba(171, 171, 171, 0.7);
+    margin-top: 400px;
+    margin-left: 200px;
+    margin-right: 200px;
+    width: 300px;
+    border: .1em solid black;
+    
+    
+}
+
+.btn:hover {
+    box-shadow: 0 0 2em red;
 }

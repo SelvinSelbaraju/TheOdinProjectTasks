@@ -3,6 +3,16 @@ const moves = ['rock','paper','scissors'];
 let totalScore = 0;
 let scoreBox = document.querySelector('#score');
 scoreBox.textContent = `Score: ${String(totalScore)}`;
+let button1 = document.createElement('button');
+let button2 = document.createElement('button');
+let button3 = document.createElement('button');
+button1.type = 'button';
+button2.type = 'button';
+button3.type = 'button';
+button1.setAttribute('class','btn');
+button2.setAttribute('class','btn');
+button3.setAttribute('class','btn');
+
 
 
 
@@ -11,6 +21,18 @@ function genCpuMove() {
     let cpuMove = moves[moveIndex];
     return cpuMove; 
 }
+
+function genGameButtons() {
+    let gameDiv = document.querySelector('#game-div');
+    button1.textContent = 'Rock';
+    button2.textContent = 'Paper';
+    button3.textContent = 'Scissors';
+    gameDiv.appendChild(button1);
+    gameDiv.appendChild(button2);
+    gameDiv.appendChild(button3);   
+}
+
+
 
 function playerChoosesRock(player,cpu) {
     let increment = 0;
@@ -73,15 +95,9 @@ function playerChoosesScissors(player,cpu) {
 }
 
 
-function playGame() {
+function playGameRock() {
+    playerMove = 'rock'
     let cpuGameMove = genCpuMove()
-    console.log(cpuGameMove)
-    playerMove = prompt("Please enter your move:").toLowerCase();
-    if (moves.includes(playerMove) == false) {
-        alert("You have entered an invalid move. Try again.");
-    }
-    
-    else {
         if (playerMove == 'rock') {
             totalScore += playerChoosesRock(playerMove,cpuGameMove,totalScore);
         }
@@ -94,13 +110,62 @@ function playGame() {
         else {
             totalScore += playerChoosesScissors(playerMove,cpuGameMove,totalScore);
         }
-
-    }
-    scoreBox.textContent = `Score: ${String(totalScore)}`;
     
+    
+    scoreBox.textContent = `Score: ${String(totalScore)}`;
+        
+
+}
+
+function playGamePaper() {
+    playerMove = 'paper'
+    let cpuGameMove = genCpuMove()
+        if (playerMove == 'rock') {
+            totalScore += playerChoosesRock(playerMove,cpuGameMove,totalScore);
+        }
+
+        else if (playerMove == 'paper') {
+            totalScore += playerChoosesPaper(playerMove,cpuGameMove,totalScore);
+            
+        }
+
+        else {
+            totalScore += playerChoosesScissors(playerMove,cpuGameMove,totalScore);
+        }
+    
+    
+    scoreBox.textContent = `Score: ${String(totalScore)}`;
+        
+
+}
+
+function playGameScissors() {
+    playerMove = 'scissors'
+    let cpuGameMove = genCpuMove()
+   
+        if (playerMove == 'rock') {
+            totalScore += playerChoosesRock(playerMove,cpuGameMove,totalScore);
+        }
+
+        else if (playerMove == 'paper') {
+            totalScore += playerChoosesPaper(playerMove,cpuGameMove,totalScore);
+            
+        }
+
+        else {
+            totalScore += playerChoosesScissors(playerMove,cpuGameMove,totalScore);
+        }
+    
+    
+    scoreBox.textContent = `Score: ${String(totalScore)}`;
+        
 
 }
 
 const playButton = document.querySelector('#play-button');
 
-playButton.addEventListener('click',playGame);
+playButton.addEventListener('click',genGameButtons);
+button1.addEventListener('click',playGameRock);
+button2.addEventListener('click',playGamePaper);
+button3.addEventListener('click',playGameScissors);
+
