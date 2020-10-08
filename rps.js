@@ -2,7 +2,9 @@ let playerMove = "";
 const moves = ['rock','paper','scissors'];
 let totalScore = 0;
 let scoreBox = document.querySelector('#score');
+let cpuDiv = document.querySelector('#cpu');
 scoreBox.textContent = `Score: ${String(totalScore)}`;
+
 let button1 = document.createElement('button');
 let button2 = document.createElement('button');
 let button3 = document.createElement('button');
@@ -12,6 +14,10 @@ button3.type = 'button';
 button1.setAttribute('class','btn');
 button2.setAttribute('class','btn');
 button3.setAttribute('class','btn');
+
+let cpuResult = document.createElement('div');
+cpuResult.setAttribute('id','cpu-result');
+cpuResult.textContent = 'CPU chose: ';
 
 
 
@@ -29,68 +35,59 @@ function genGameButtons() {
     button3.textContent = 'Scissors';
     gameDiv.appendChild(button1);
     gameDiv.appendChild(button2);
-    gameDiv.appendChild(button3);   
+    gameDiv.appendChild(button3);
+    cpuDiv.appendChild(cpuResult);   
 }
-
 
 
 function playerChoosesRock(player,cpu) {
     let increment = 0;
     if (cpu == 'rock') {
-        alert(`You played ${player} and the cpu played ${cpu}. You tie!`);
-        increment += 0
+        increment += 0;
     }
     
     else if (cpu == 'paper') {
-        alert(`You played ${player} and the cpu played ${cpu}. You lose!`);
-        increment += -1
+        increment += -1;
     }
 
     else {
-        alert(`You played ${player} and the cpu played ${cpu}. You win!`);
         increment += 1;
     }
-
+    cpuResult.textContent = `CPU chose: ${cpu}`;
     return increment;
 }
 
 function playerChoosesPaper(player,cpu) {
     let increment = 0;
     if (cpu == 'rock') {
-        alert(`You played ${player} and the cpu played ${cpu}. You win!`)
         increment += 1;
     }
     
     else if (cpu == 'paper') {
-        alert(`You played ${player} and the cpu played ${cpu}. You tie!`)
         increment += 0;
     }
 
     else {
-        alert(`You played ${player} and the cpu played ${cpu}. You lose!`)
         increment += -1;
     }
-
+    cpuResult.textContent = `CPU chose: ${cpu}`;
     return increment;
 }
 
 function playerChoosesScissors(player,cpu) {
-    let increment = 0
+    let increment = 0;
     if (cpu == 'rock') {
-        alert(`You played ${player} and the cpu played ${cpu}. You lose!`)
-        increment += -1
+        increment += -1;
     }
     
     else if (cpu == 'paper') {
-        alert(`You played ${player} and the cpu played ${cpu}. You win!`)
-        increment += 1
+        increment += 1;
     }
 
     else {
-        alert(`You played ${player} and the cpu played ${cpu}. You tie!`)
-        increment += 0
+        increment += 0;
     }
-
+    cpuResult.textContent = `CPU chose: ${cpu}`;
     return increment;
 }
 
@@ -98,69 +95,23 @@ function playerChoosesScissors(player,cpu) {
 function playGameRock() {
     playerMove = 'rock'
     let cpuGameMove = genCpuMove()
-        if (playerMove == 'rock') {
-            totalScore += playerChoosesRock(playerMove,cpuGameMove,totalScore);
-        }
-
-        else if (playerMove == 'paper') {
-            totalScore += playerChoosesPaper(playerMove,cpuGameMove,totalScore);
-            
-        }
-
-        else {
-            totalScore += playerChoosesScissors(playerMove,cpuGameMove,totalScore);
-        }
-    
-    
+    totalScore += playerChoosesRock(playerMove,cpuGameMove,totalScore);
     scoreBox.textContent = `Score: ${String(totalScore)}`;
-        
-
-}
-
+        }
 function playGamePaper() {
     playerMove = 'paper'
     let cpuGameMove = genCpuMove()
-        if (playerMove == 'rock') {
-            totalScore += playerChoosesRock(playerMove,cpuGameMove,totalScore);
-        }
-
-        else if (playerMove == 'paper') {
-            totalScore += playerChoosesPaper(playerMove,cpuGameMove,totalScore);
-            
-        }
-
-        else {
-            totalScore += playerChoosesScissors(playerMove,cpuGameMove,totalScore);
-        }
-    
-    
+    totalScore += playerChoosesPaper(playerMove,cpuGameMove,totalScore);
     scoreBox.textContent = `Score: ${String(totalScore)}`;
-        
-
 }
 
 function playGameScissors() {
     playerMove = 'scissors'
     let cpuGameMove = genCpuMove()
-   
-        if (playerMove == 'rock') {
-            totalScore += playerChoosesRock(playerMove,cpuGameMove,totalScore);
-        }
-
-        else if (playerMove == 'paper') {
-            totalScore += playerChoosesPaper(playerMove,cpuGameMove,totalScore);
-            
-        }
-
-        else {
-            totalScore += playerChoosesScissors(playerMove,cpuGameMove,totalScore);
-        }
-    
-    
+    totalScore += playerChoosesScissors(playerMove,cpuGameMove,totalScore);
     scoreBox.textContent = `Score: ${String(totalScore)}`;
-        
-
 }
+
 
 const playButton = document.querySelector('#play-button');
 
