@@ -1,33 +1,82 @@
-let container = document.querySelector('#container');
 let divs = [];
-const resetButton = document.querySelector('#reset')
 
-function changeColor(div) {
-    div.setAttribute('class','grid-hover');
-}
+let container = document.querySelector('#container')
+const reset = document.querySelector('#reset');
 
-function genDivs (num) {
-    divs = [];
-    for (i=0; i<num**2; i++) {
-        divs[i] = document.createElement('div');
-        divs[i].setAttribute('class','grid-square');
-        divs[i].textContent = i+1; 
-        container.appendChild(divs[i]);
-        divs[i].addEventListener('mouseenter',function (event) {
-        event.target.setAttribute('class','grid-hover') = 'green';
-        });
+let columnWidth = "6%";
+let rowHeight = "80px";
+let columns = "6%";
+let rows = "6%";
+
+let side = 16;
+
+for (i=1; i <= side ** 2; i++) {
+    divs[i] = document.createElement('div')
+    divs[i].setAttribute('class','grid-square')
+    container.appendChild(divs[i])
+    divs[i].addEventListener('mouseenter', function(e) {
+        e.target.setAttribute('class','grid-hover') = 'green'; 
+    })
+    
     }
+for (i=1; i<side; i++) {
+columns = columns.concat(' ',columnWidth);
+rows = rows.concat(' ',rowHeight);
 }
 
-function resetDivs() {
-    while (container.firstChild) {
-        container.removeChild(container.firstChild)
+container.style.gridTemplateColumns = columns;
+container.style.gridTemplateRows = rows;
+columns = "";
+rows = "";
+
+
+
+function refreshGrid() {
+    while(container.firstChild) {
+        container.removeChild(container.firstChild);
     }
-    let numDivs = Number(prompt('Please enter row/column length: '));
-    genDivs(numDivs);
+    let sideValid = false;
+    while(sideValid == false){
+        side = prompt("How many sides would you like?");
+        if(isNaN(side)){
+            alert('Please enter a number.');
+        }
+        else if (Number(side) > 100) {
+            alert('Please enter a smaller number.')
+        }
+        else {
+            side = Number(side);
+            sideValid = true;
+        }
+    }
+
+    columnWidth = String(Math.floor(100/side)) + "%";
+    rowHeight = String(Math.floor(1280/side)) + "px"; 
+
+
+    for (i=1; i <= side ** 2; i++) {
+        divs[i] = document.createElement('div')
+        divs[i].setAttribute('class','grid-square')
+        container.appendChild(divs[i])
+        divs[i].addEventListener('mouseenter', function(e) {
+            e.target.setAttribute('class','grid-hover') = 'green'; 
+        })
+    }
+
+    for (i=1; i<=side; i++) {
+        columns = columns.concat(' ',columnWidth);
+        rows = rows.concat(' ',rowHeight);
+        }
+
+        container.style.gridTemplateColumns = columns;
+        container.style.gridTemplateRows = rows;
+        columns = "";
+        rows = "";
+    
+            
 }
 
-resetButton.addEventListener('click',resetDivs);
+reset.addEventListener('click',refreshGrid)
 
-genDivs(16)
+console.log(rowHeight)
 
