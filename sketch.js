@@ -15,7 +15,7 @@ for (i=1; i <= side ** 2; i++) {
     divs[i].setAttribute('class','grid-square')
     container.appendChild(divs[i])
     divs[i].addEventListener('mouseenter', function(e) {
-        e.target.setAttribute('class','grid-hover') = 'green'; 
+        e.target.setAttribute('class','grid-hover'); 
     })
     
     }
@@ -59,7 +59,7 @@ function refreshGrid() {
         divs[i].setAttribute('class','grid-square')
         container.appendChild(divs[i])
         divs[i].addEventListener('mouseenter', function(e) {
-            e.target.setAttribute('class','grid-hover') = 'green'; 
+            e.target.setAttribute('class','grid-hover'); 
         })
     }
 
