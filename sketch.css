@@ -1,0 +1,17 @@
+
+
+.grid-square {
+    background-color: red;
+    border: 1px solid black;
+}
+
+#container {
+    display: grid;
+    grid-template-columns: 6% 6% 6% 6% 6% 6% 6% 6% 6% 6% 6% 6% 6% 6% 6% 6% ;
+    grid-template-rows: 20px 20px 20px 20px 20px 20px 20px 20px 20px 20px 20px 20px 20px 20px 20px 20px;
+    
+}
+
+.grid-hover {
+    background-color: green;
+}
