@@ -1,0 +1,28 @@
+body {
+    background-color: salmon;
+}
+
+.btn {
+    background-color: grey;
+    margin-top: 500px;
+    font-size: 72px;
+    margin-right: 5px;
+    margin-left: 5px;
+}
+
+.btn:hover {
+    border: 2px solid red;
+}
+
+#buttons {
+    text-align: center;
+}
+
+#display {
+    text-align: center;
+    margin-top: 100px;
+    font-size: 72px;
+    border: 10px solid black;
+    margin-left: 100px;
+    margin-right: 100px;
+}
