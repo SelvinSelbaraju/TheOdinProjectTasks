@@ -16,13 +16,21 @@ h1 {
 }
 
 .btn {
-    background-color: grey;
+    background-color: lightgrey;
     margin-top: 20vh;
     font-size: 1vw;
     margin-right: 1vw;
     margin-left: 1vw;
     width: 3vw;
     height: 3vh;
+}
+
+.sign-btn {
+    background-color: orange;
+}
+
+.clear-btn {
+    background-color: rgb(48, 134, 134);
 }
 
 .btn:hover {
@@ -41,4 +49,8 @@ h1 {
     background-color: darkgray;
     margin-left: 15vw;
     margin-right: 15vw;
+}
+
+#equals {
+    background-color: rgb(42, 139, 42)
 }

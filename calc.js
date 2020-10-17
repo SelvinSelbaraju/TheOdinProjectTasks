@@ -75,8 +75,18 @@ function clearNums() {
 }
 
 function addDP() {
-    display = display + ".";
-    displayDiv.textContent = display;
+    let lastnum = display.split(" ")[display.split(" ").length-1];
+    let dotCount = 0;
+    for (i=0; i<lastnum.length;i++) {
+        if (lastnum[i] == ".") {
+            dotCount ++
+        }
+    }
+
+    if (dotCount < 1) {
+        display = display + ".";
+        displayDiv.textContent = display;
+    }
 }
 
 
