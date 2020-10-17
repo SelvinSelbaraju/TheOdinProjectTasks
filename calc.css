@@ -1,13 +1,28 @@
 body {
     background-color: salmon;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: maroon;
+    color: burlywood;
+    font-size: 16px;
+    
+}
+
+h1 {
+    margin-top: 0;
 }
 
 .btn {
     background-color: grey;
-    margin-top: 500px;
-    font-size: 72px;
-    margin-right: 5px;
-    margin-left: 5px;
+    margin-top: 20vh;
+    font-size: 1vw;
+    margin-right: 1vw;
+    margin-left: 1vw;
+    width: 3vw;
+    height: 3vh;
 }
 
 .btn:hover {
@@ -20,9 +35,10 @@ body {
 
 #display {
     text-align: center;
-    margin-top: 100px;
-    font-size: 72px;
-    border: 10px solid black;
-    margin-left: 100px;
-    margin-right: 100px;
+    margin-top: 5vh;
+    font-size: 5vh;
+    border: 10px solid darkgray;
+    background-color: darkgray;
+    margin-left: 15vw;
+    margin-right: 15vw;
 }
