@@ -1,24 +1,23 @@
-dictionary = ["below","down","go","going","horn","how","howdy","it","i","low","own","part","partner","sit"]
+dictionary = %w[below down go going horn how howdy it i low own part partner sit]
 
 string = "Howdy partner, sit down! How's it going?"
 
-def substring(string,dictionary)
+def substring(string, dictionary)
   result_hash = {}
-  seperated_words = string.split(" ")
-  for i in seperated_words
-    for j in dictionary
+  seperated_words = string.split(' ')
+  seperated_words.each do |i|
+    dictionary.each do |j|
       if i.include?(j)
-        if result_hash[j] == nil
+        if result_hash[j].nil?
           result_hash[j] = 0
           result_hash[j] += 1
         else
-        result_hash[j] += 1
+          result_hash[j] += 1
         end
       end
     end
   end
-  return result_hash
+  result_hash
 end
 
-puts substring(string,dictionary)
-
+puts substring(string, dictionary)
